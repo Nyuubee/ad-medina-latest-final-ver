@@ -1,0 +1,24 @@
+{
+  "name": "@clinic/crypto",
+  "version": "1.0.1",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src/**/*"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "hash-wasm": "^4.11.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.2"
+  }
+}

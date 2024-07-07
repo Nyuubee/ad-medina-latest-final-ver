@@ -1,0 +1,1 @@
+export const GLOBAL_RECORDS_PER_PAGE_LIMIT = 25;

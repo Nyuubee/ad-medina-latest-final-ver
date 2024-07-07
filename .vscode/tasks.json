@@ -1,0 +1,77 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"command": "nix develop --impure",
+			"problemMatcher": [],
+			"label": "nix: db",
+			"detail": "Start database in nixos",
+			"group": "build",
+			"isBackground": true,
+			"options": {
+				"cwd": "${workspaceFolder}",
+				"env": {
+					"START_DB":"1"
+				},
+			}
+		},
+		{
+			"type": "typescript",
+			"tsconfig": "crypto/tsconfig.json",
+			"option": "watch",
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"group": "build",
+			"label": "@clinic/crypto: dev",
+			"options": {
+				"cwd": "crypto"
+			},
+		},
+		{
+			"type": "npm",
+			"script": "db:studio",
+			"problemMatcher": [],
+			"label": "npm: db:studio",
+			"isBackground": true,
+			"detail": "drizzle-kit studio",
+			"group": "build",
+			"options": {
+				"cwd": "${workspaceFolder}/app"
+			},
+			// "dependsOn": [
+			// 	"nix: db"
+			// ],
+			// "dependsOrder": "sequence"
+		},
+		{
+			"type": "npm",
+			"script": "dev",
+			"problemMatcher": [],
+			"label": "App: dev",
+			"detail": "nuxt dev",
+			"group": "build",
+			"isBackground": true,
+			"options": {
+				"cwd": "${workspaceFolder}/app"
+			},
+			"dependsOn": [
+				"@clinic/crypto: dev",
+			],
+			"dependsOrder": "sequence"
+		},
+		{
+			// everything
+			"type": "shell",
+			"command": "echo Starting everything...",
+			"label": "EVERYTHING",
+			"group": "build",
+			"problemMatcher": [],
+			"dependsOn": [
+				"App: dev",
+				"npm: db:studio",
+			],
+		},
+	]
+}

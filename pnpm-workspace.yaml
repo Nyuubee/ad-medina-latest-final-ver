@@ -1,0 +1,6 @@
+# Add nuxt layers under `- app/<layer name>`
+# Read: https://nuxt.com/docs/guide/going-further/layers
+packages:
+    - "pkgs/**"
+    - "app"
+    - "crypto"
