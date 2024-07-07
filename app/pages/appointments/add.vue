@@ -12,7 +12,7 @@
 
       <div class="gap-y-4 gap-x-8 flex flex-col xl:flex-row">
         <!-- Appointment Date -->
-        <FormKit type="date" label="Appointment Date" name="appointmentDate" v-model="formData.appointmentDate" :min="today" validation="required" />
+        <FormKit type="date" label="Appointment Date" name="appointmentDate" onkeydown="return false" v-model="formData.appointmentDate" :min="today" validation="required" />
         <!-- Start Time -->
         <FormKit type="time" label="Start Time" name="startTime" v-model="formData.startTime" validation="required" />
         <!-- End Time -->
